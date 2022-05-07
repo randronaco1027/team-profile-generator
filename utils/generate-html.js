@@ -1,4 +1,4 @@
-const generateHtml = function(data) {
+const generateHtml = function() {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -48,7 +48,7 @@ const generateEngineer = function(engineerData) {
         <div class="card-body">
             <p>ID: ${engineerData.id}</p>
             <p>Email: <span><a href="#">${engineerData.email}</a></span></p>
-            <p>Office Number: ${engineerData.office}</p>
+            <p>Office Number: ${engineerData.github}</p>
         </div>
     </div>
     `
@@ -61,7 +61,7 @@ const generateIntern = function (internData) {
         <div class="card-body">
             <p>ID: ${internData.id}</p>
             <p>Email: <span><a href="#">${internData.email}</a></span></p>
-            <p>Office Number: ${internData.office}</p>
+            <p>Office Number: ${internData.school}</p>
         </div>
     </div>
     `

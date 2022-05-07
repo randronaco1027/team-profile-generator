@@ -1,6 +1,11 @@
-const promptEngineer = require('../lib/Engineer')
+const Engineer = require('../lib/Engineer')
 
-test('Expect id to be a number', (data) => {
-    const n = data
-    expect(n).toBeDefined()
+test('determine if github is string', () => {
+    const engineer = new Engineer('Ray', 1, 'ray@email.com', 'github.com/ray')
+    expect(typeof (engineer.getGithub())).toBe('string')
+})
+
+test('determine if role is engineer', () => {
+    const engineer = new Engineer('Ray', 1, 'ray@email.com', 'github.com/ray')
+    expect(engineer.getRole()).toBe('Engineer')
 })

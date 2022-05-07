@@ -1,9 +1,25 @@
-const sum = require('../lib/Employee')
+const Employee = require('../lib/Employee')
 
-test('should return 3', () => {
-    expect(sum(1,2)).toBe(3)
-}) 
+//Determines if name entered is a string
+test('gets name of employee', () => {
+    const employee = new Employee('Ray', 1, 'ray@email.com')
+    expect(typeof (employee.getName())).toBe('string')
+})
 
-test('should return 5', () => {
-    expect(sum(1,4)).toBe(5)
-}) 
+//Determines if id entered is a number
+test('gets id of employee', () => {
+    const employee = new Employee('Ray', 1, 'ray@email.com')
+    expect(typeof (employee.getId())).toBe('number')
+})
+
+//Determines if email entered is string
+test('gets email of employee', () => {
+    const employee = new Employee('Ray', 1, 'ray@email.com')
+    expect(typeof (employee.getEmail())).toBe('string')
+})
+
+// Always returns employee because it was overwritten
+test('gets role of employee', () => {
+    const employee = new Employee();
+    expect(employee.getRole()).toEqual("Employee");
+}); 
