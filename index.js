@@ -82,13 +82,13 @@ const nextEmployee = employeeData => {
         }
     ])
         .then(employeeReturn => {
-            let {position, name, id, github, school, confirmAddEmployee} = employeeReturn
+            let {position, name, id, email, github, school, confirmAddEmployee} = employeeReturn
 
-            if (role === 'Engineer') {
+            if (position === 'Engineer') {
                 const engineer = new Engineer(name, id, email, github)
 
                 teamMembers.push(engineer)
-            } else if (role === 'Intern') {
+            } else if (position === 'Intern') {
                 const intern = new Intern(name, id, email, school)
 
                 teamMembers.push(intern)
