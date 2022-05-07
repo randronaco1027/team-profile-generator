@@ -1,11 +1,12 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
 const generateHtml = require('./utils/generate-html')
-const Employee = require('./lib/Employee')
+
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
-const Choice = require('inquirer/lib/objects/choice')
+
+const teamMembers = []
 
 const promptManager = () => {
     return inquirer.prompt([
@@ -30,15 +31,18 @@ const promptManager = () => {
             message: 'Please enter office number'
         }
     ])
+        .then(mgrData => {
+            const { name, id, email, officeNumber } = mgrData
+            const manager = new Manager(name, id, email, officeNumber)
+
+            teamMembers.push(manager)
+        })
 }
 
 const nextEmployee = employeeData => {
-    if (!employeeData.employees) {
-        employeeData.employees = []
-    }
     return inquirer.prompt([
         {
-            type: 'choice',
+            type: 'list',
             name: 'position',
             message: 'Please choose type of Employee',
             choices: ['Engineer', 'Intern']
@@ -74,23 +78,28 @@ const nextEmployee = employeeData => {
             type: 'confirm',
             name: 'confirmAddEmployee',
             message: 'Would you like to add another employee?',
-            default: false
+            default: false,
         }
     ])
-    .then(employeeReturn => {
-        employeeData.employees.push(employeeReturn)
-        if (employeeReturn.confirmAddEngineer) {
-            return promptEngineer(employeeData)
-        } else {
-            return employeeData
-        }
-    })
+        .then(employeeReturn => {
+            let {position, name, id, github, school, confirmAddEmployee} = employeeReturn
+
+            if (role === 'Engineer') {
+                const engineer = new Engineer(name, id, email, github)
+
+                teamMembers.push(engineer)
+            } else if (role === 'Intern') {
+                const intern = new Intern(name, id, email, school)
+
+                teamMembers.push(intern)
+            }
+        })
 }
 
 promptManager()
-.then(nextEmployee)
-.then(data => {
-    console.log(data)
-    const generateContent = generateHtml(data)
-    fs.writeFileSync('./dist/index.html', generateContent)
-})
+    .then(nextEmployee)
+    .then(data => {
+        console.log(data)
+        const generateContent = generateHtml(data)
+        fs.writeFileSync('./dist/index.html', generateContent)
+    })
