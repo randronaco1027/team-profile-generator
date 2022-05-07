@@ -13,7 +13,7 @@ const promptManager = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'Please enter your name'
+            message: 'Please enter manager name'
         },
         {
             type: 'input',
@@ -65,7 +65,7 @@ const nextEmployee = employeeData => {
         {
             type: 'input',
             name: 'github',
-            message: 'Please provide engineer GitHub',
+            message: 'Please provide engineer GitHub username',
             when: (input) => input.position === 'Engineer'
         },
         {
