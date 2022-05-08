@@ -23,5 +23,5 @@ https://drive.google.com/file/d/16KWv7t4mcx55oAufy94QuTlbZdm9tWZD/view?usp=shari
 ## Preview of finished HTML
 ![preview of html](./assets/preview.png)
 
-## GitHub URL
-https://github.com/randronaco1027/team-profile-generator 
+## Deployed Application URL
+https://randronaco1027.github.io/team-profile-generator/ 
