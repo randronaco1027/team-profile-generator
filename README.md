@@ -18,10 +18,14 @@ npm install inquirer
 npm install --save-dev jest
 
 ## Walkthrough Guide
+Calling index.js and completing prompts:
 https://drive.google.com/file/d/16KWv7t4mcx55oAufy94QuTlbZdm9tWZD/view?usp=sharing 
+
+Running tests through jest:
+https://drive.google.com/file/d/13uO0zChxoIh1Yt1dsxku_T54VBeU_lFG/view?usp=sharing
 
 ## Preview of finished HTML
 ![preview of html](./assets/preview.png)
 
-## Deployed Application URL
-https://randronaco1027.github.io/team-profile-generator/ 
+## GitHub Repo
+https://github.com/randronaco1027/team-profile-generator 
