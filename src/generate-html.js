@@ -1,3 +1,4 @@
+// Creates Manager portion of HTML
 const generateManager = function(mgrData) {
     return `
     <div class="card m-2">
@@ -14,6 +15,7 @@ const generateManager = function(mgrData) {
     `
 }
 
+// Creates Engineer portion of HTML
 const generateEngineer = function(engineerData) {
     return `
     <div class="card m-2">
@@ -30,6 +32,7 @@ const generateEngineer = function(engineerData) {
     `
 }
 
+// Creates Intern portion of HTML
 const generateIntern = function (internData) {
     return `
     <div class="card m-2">
@@ -46,6 +49,7 @@ const generateIntern = function (internData) {
     `
 }
 
+// Creates array of all team members to be added to HTML
 const generateTeamPage = function(teamData) {
     const teamArr = []
     
@@ -61,6 +65,7 @@ const generateTeamPage = function(teamData) {
     return teamArr
 }
 
+// Creates full HTML with team members
 const generateHtml = (teamData) => {
     return `<!DOCTYPE html>
     <html lang="en">

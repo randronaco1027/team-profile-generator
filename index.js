@@ -1,6 +1,6 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-const generateHtml = require('./utils/generate-html')
+const generateHtml = require('./src/generate-html')
 
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
@@ -8,6 +8,7 @@ const Intern = require('./lib/Intern')
 
 const teamMembers = []
 
+// Prompt information of manager and add to teamMembers array
 const promptManager = () => {
     return inquirer.prompt([
         {
@@ -39,6 +40,7 @@ const promptManager = () => {
         })
 }
 
+// Prompt next employee and give option to add more at end
 const nextEmployee = employeeData => {
     return inquirer.prompt([
         {
@@ -81,6 +83,7 @@ const nextEmployee = employeeData => {
             default: false,
         }
     ])
+        // Adds new employees to array
         .then(employeeReturn => {
             let { position, name, id, email, github, school, confirmAddEmployee } = employeeReturn
 
@@ -101,6 +104,7 @@ const nextEmployee = employeeData => {
         })
 }
 
+// Build HTML with information from inquirer
 promptManager()
     .then(nextEmployee)
     .then(data => {
